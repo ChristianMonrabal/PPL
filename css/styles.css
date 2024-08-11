@@ -1,179 +1,72 @@
+/* styles.css */
+
 body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #1a1a40, #383a59);
+    font-family: Arial, sans-serif;
+    background-color: #1a1a40;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    color: #ffffff;
-    overflow: hidden;
 }
 
-.game-container {
+.welcome-container {
     text-align: center;
-    background: #f4f4f4;
-    padding: 50px 40px;
-    border-radius: 20px;
-    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.4);
-    width: 90%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 80%;
     max-width: 600px;
 }
 
 h1 {
-    font-size: 3em;
+    color: #383a59;
     margin-bottom: 20px;
-    color: #2c3e50;
+}
+
+.game-mode-selection {
+    margin-top: 20px;
+}
+
+.button {
+    display: inline-block;
+    background-color: #3498db;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 18px;
+    margin: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button {
+    display: inline-block;
+    background: linear-gradient(135deg, #1a1a40, #383a59);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.scoreboard {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 40px;
+.button:hover {
+    background: linear-gradient(135deg, #1a1a40, #383a59);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-.score {
-    background: linear-gradient(145deg, #e0e0e0, #ffffff);
-    border-radius: 15px;
-    padding: 20px 30px;
-    width: 150px;
-    text-align: center;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+.button:active {
+    background: linear-gradient(135deg, #1a1a40, #383a59);
+    transform: translateY(1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-.score h2 {
-    margin: 0;
-    font-size: 1.4em;
-    color: #34495e;
-    letter-spacing: 1px;
-}
-
-#player-score {
-    font-size: 2.5em;
-    margin-top: 10px;
-    color: #2ecc71;
-    font-weight: bold;
-}
-
-#computer-score {
-    font-size: 2.5em;
-    margin-top: 10px;
-    color: #e74c3c;
-    font-weight: bold;
-}
-
-.choices-container {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 40px;
-}
-
-.choice-box {
-    background: #2c3e50;
-    border: 4px solid #ecf0f1;
-    border-radius: 15px;
-    padding: 20px;
-    cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
-}
-
-.choice-box:hover {
-    transform: scale(1.1);
-    background-color: #34495e;
-    box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.3);
-}
-
-.choice {
-    font-size: 100px;
-    color: #ecf0f1;
-    transition: transform 0.3s ease;
-}
-
-.result {
-    margin-bottom: 30px;
-    min-height: 40px;
-}
-
-#result-message {
-    font-size: 1.8em;
-    color: #e74c3c;
-    font-weight: 600;
-    letter-spacing: 1px;
-    transition: transform 0.5s ease, color 0.5s ease;
-}
-
-#reset-game {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    font-size: 1.5em;
-    color: #2c3e50;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-#reset-game:hover {
-    color: #e74c3c;
-    transform: scale(1.1);
-}
-
-@keyframes winnerAnimation {
-    0% {
-        transform: scale(1);
-        color: #2ecc71;
-    }
-    50% {
-        transform: scale(1.2);
-        color: #27ae60;
-    }
-    100% {
-        transform: scale(1);
-        color: #2ecc71;
-    }
-}
-
-@keyframes loserAnimation {
-    0% {
-        transform: scale(1);
-        color: #e74c3c;
-    }
-    50% {
-        transform: scale(1.2);
-        color: #c0392b;
-    }
-    100% {
-        transform: scale(1);
-        color: #e74c3c;
-    }
-}
-
-@keyframes drawAnimation {
-    0% {
-        transform: scale(1);
-        color: #000000;
-    }
-    50% {
-        transform: scale(1.2);
-        color: #333333;
-    }
-    100% {
-        transform: scale(1);
-        color: #000000;
-    }
-}
-
-.winner {
-    animation: winnerAnimation 1s ease-in-out forwards;
-}
-
-.loser {
-    animation: loserAnimation 1s ease-in-out forwards;
-}
-
-.draw {
-    animation: drawAnimation 1s ease-in-out forwards;
+.button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 122, 255, 0.5);
 }
